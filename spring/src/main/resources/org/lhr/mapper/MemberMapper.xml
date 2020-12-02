@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="org.lhr.mapper.MemberMapper">
+
+  <select id="memberlist" resultType="org.lhr.DTO.MemberDTO">
+  select * from member2;
+  </select>
+
+  <select id="memberdetail" resultType="org.lhr.DTO.MemberDTO">
+  select * from member2 where id=#{id};
+  </select>
+  
+  <update id="memberupdate">
+  update member2 set addr=#{addr},password=#{password} where id=#{id};
+  </update>
+  
+  <delete id="memberdelete">
+  delete from member2 where id=#{id};
+  </delete>
+  
+  <insert id="memberinsert">
+  insert into member2 (addr,id,password) values(#{addr},#{id},#{password});
+  </insert>
+  
+  </mapper>
+  

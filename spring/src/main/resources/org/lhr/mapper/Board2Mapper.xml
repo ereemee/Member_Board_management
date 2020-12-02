@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="org.lhr.mapper.Board2Mapper">
+  
+  <!-- 글쓰기를 하기 위한 dao (insert) -->
+  <insert id="write2">
+  	insert into tbl_board (title, content)
+	values(#{title}, #{content});
+  </insert>
+
+  <select id="list2" resultType="org.lhr.DTO.BoardDTO">
+	  select * from tbl_board;
+  </select>
+  
+  <select id="detail2" resultType="org.lhr.DTO.BoardDTO">
+   select * from tbl_board where bno=#{bno};
+  
+  </select>
+  <update id="update2">
+  update tbl_board set title=#{title}, content=#{content}, updatedate=sysdate() where bno=#{bno};
+  </update>
+  <delete id="delete2">
+  delete from tbl_board where bno=#{bno};
+  </delete>
+  
+  </mapper>
